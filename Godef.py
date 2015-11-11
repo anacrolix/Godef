@@ -13,7 +13,7 @@ class GodefCommand(sublime_plugin.WindowCommand):
         settings = view.settings()
         godefpath = settings.get('godef', 'godef')
         env = os.environ.copy()
-        env.update(filter(lambda x: x[0] == 'GOPATH', settings.get('env').items()))
+        env.update(filter(lambda x: x[0] in ['GOPATH', 'PATH'], settings.get('env').items()))
         # print(env)
         filename = view.file_name()
         select = view.sel()[0]
